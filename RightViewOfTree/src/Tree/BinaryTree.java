@@ -47,16 +47,16 @@ public class BinaryTree {
 		_PrintRightView(binaryTreeNode, 1, maxLevel);
 	}
 	
-	private void _PrintRightView(BinaryTreeNode binaryTreeNode, int currentLevel, PersistingLevel level) {
+	private void _PrintRightView(BinaryTreeNode binaryTreeNode, int currentLevel, PersistingLevel persistingLevel) {
 		if(binaryTreeNode == null) {
 			return;
 		}
 		
-		if(currentLevel > level.GetPersistingLevel()) {
+		if(currentLevel > persistingLevel.GetPersistingLevel()) {
 			System.out.println(binaryTreeNode.GetBinaryTreeNodeData());
-			level.SetPersistingLevel(currentLevel);;
+			persistingLevel.SetPersistingLevel(currentLevel);;
 		}
-		_PrintRightView(binaryTreeNode.GetBinaryTreeNodeRight(), currentLevel+1, level);
-		_PrintRightView(binaryTreeNode.GetBinaryTreeNodeLeft(), currentLevel+1, level);
+		_PrintRightView(binaryTreeNode.GetBinaryTreeNodeRight(), currentLevel+1, persistingLevel);
+		_PrintRightView(binaryTreeNode.GetBinaryTreeNodeLeft(), currentLevel+1, persistingLevel);
 	}
 }
